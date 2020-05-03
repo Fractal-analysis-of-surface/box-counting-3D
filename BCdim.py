@@ -83,12 +83,12 @@ while cond<10:     ## Volbou hodnoty napr. 10 nastavíme podmienku najmenšej pr
     Data=np.loadtxt(filename,dtype=float) ## Do Matice data sa načítajú hodnoty zo vstupného súboru
     
 #Spracovanie dát            
-    length = len(data) # Pocet prvkov gridu
+    length = len(Data) # Pocet prvkov gridu
     i=int(length**(1/2)) # Pocet voxelov pozdlz osi X alebo Y
     mincoord=[0]*3 # Minimalne hodnoty súradníc X,Y,Z 
-    mincoord = data.min(axis=0)
+    mincoord = Data.min(axis=0)
     maxcoord=[0]*3 # Maximalne hodnoty súradníc X,Y,Z
-    maxcoord = data.max(axis=0)
+    maxcoord = Data.max(axis=0)
     vox=(maxcoord[1]-mincoord[1])/((length**(1/2))-1) # Velkosť voxla
     cond=round(vox,2)
 
@@ -105,7 +105,7 @@ i = int(iz)
 mmm=0
 for m in range(0,i,1): # os y
     for n in range(0,i,1): # os x
-        S_Matrix[m][n]=data[(mmm*i)+n][2]
+        S_Matrix[m][n]=Data[(mmm*i)+n][2]
         continue
     mmm += 1 
     
